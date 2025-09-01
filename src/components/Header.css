@@ -5,6 +5,14 @@ header {
   text-align: center;
 }
 
+header a {
+  text-decoration: none;
+}
+
+header h1 {
+  color: #ffcb05;
+}
+
 header .links {
   display: flex;
   gap: 1rem;

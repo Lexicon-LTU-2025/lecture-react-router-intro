@@ -4,7 +4,7 @@ import { App } from './components/App.tsx';
 import { BrowserRouter, Routes, Route, Navigate, RouterProvider } from 'react-router';
 import { PokemonView } from './views/PokemonView.tsx';
 import { HomeView } from './views/HomeView.tsx';
-import { router } from './router.tsx';
+import { router, routerJSX } from './router.tsx';
 
 // Declarative Router
 // createRoot(document.getElementById('root')!).render(
@@ -23,4 +23,4 @@ import { router } from './router.tsx';
 // );
 
 // Data Router
-createRoot(document.getElementById('root')!).render(<RouterProvider router={router} />);
+createRoot(document.getElementById('root')!).render(<RouterProvider router={routerJSX} />);

@@ -1,8 +1,9 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router';
 import { App } from './components/App';
 import { HomeView } from './views/HomeView';
 import { PokemonView } from './views/PokemonView';
 
+// Data router with object routes.
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -13,3 +14,13 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+// Data router with JSX routes.
+export const routerJSX = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route index element={<HomeView />} />
+      <Route path=":pokemonName" element={<PokemonView />} />
+    </Route>
+  )
+);
