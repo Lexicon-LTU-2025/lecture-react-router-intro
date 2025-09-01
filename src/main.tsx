@@ -1,19 +1,22 @@
 import './index.css';
 import { createRoot } from 'react-dom/client';
 import { App } from './components/App.tsx';
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { PokemonView } from './views/PokemonView.tsx';
-import { pokemons } from './pokemons.ts';
+import { HomeView } from './views/HomeView.tsx';
 
 // Declarative Router
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      {/* <Route path="/pikachu" element={<PokemonView pokemon={pokemons.pikachu} />} />
-      <Route path="/charizard" element={<PokemonView pokemon={pokemons.charizard} />} />
-      <Route path="/dragonite" element={<PokemonView pokemon={pokemons.dragonite} />} /> */}
-      <Route path="/:pokemonName" element={<PokemonView />} />
+      {/* Layout component to the pokemonview, or all the child routes */}
+      <Route path="/" element={<App />}>
+        <Route index element={<HomeView />} />{' '}
+        {/* An index route always renders togehter with its parent route */}
+        <Route path=":pokemonName" element={<PokemonView />} />
+      </Route>
+      {/* An 'star' route works as a 'catch all' route. Perfect for displaying 404 pages or something similar. */}
+      <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   </BrowserRouter>
 );

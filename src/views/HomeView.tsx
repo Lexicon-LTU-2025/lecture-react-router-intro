@@ -1,12 +1,7 @@
+import { NavLink } from 'react-router';
 import { Image } from '../components/Image';
-import { Link } from '../components/Link';
-import type { TPokemonSelection } from '../types';
 
-interface IHomeViewProps {
-  updateSelectedPokemon: (selectedPokemon: TPokemonSelection) => void;
-}
-
-export const HomeView = ({ updateSelectedPokemon }: IHomeViewProps) => {
+export const HomeView = () => {
   return (
     <main>
       <Image
@@ -30,17 +25,13 @@ export const HomeView = ({ updateSelectedPokemon }: IHomeViewProps) => {
       <div>
         <ul>
           <li>
-            <Link onClick={() => updateSelectedPokemon('pikachu')}>Learn more about Pikachu</Link>
+            <NavLink to="/pikachu">Learn more about Pikachu</NavLink>
           </li>
           <li>
-            <Link onClick={() => updateSelectedPokemon('charizard')}>
-              Discover Charizard's powers
-            </Link>
+            <NavLink to="/charizard">Discover Charizard's powers</NavLink>
           </li>
           <li>
-            <Link onClick={() => updateSelectedPokemon('dragonite')}>
-              Meet the mighty Dragonite
-            </Link>
+            <NavLink to="/dragonite">Meet the mighty Dragonite</NavLink>
           </li>
         </ul>
       </div>

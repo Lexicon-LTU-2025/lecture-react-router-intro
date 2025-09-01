@@ -4,12 +4,10 @@ import type { IPokemon } from '../types';
 import { pokemons } from '../pokemons';
 import type { ReactElement } from 'react';
 
-// interface IPokemonViewProps {
-//   pokemon: IPokemon;
-// }
-
-export const PokemonView = (/*{ pokemon }: IPokemonViewProps*/): ReactElement => {
+export const PokemonView = (): ReactElement => {
   const { pokemonName } = useParams();
+
+  console.log('Inside pokemon view');
 
   if (pokemonName === undefined) {
     return <Navigate replace to="/" />;

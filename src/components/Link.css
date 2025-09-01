@@ -7,3 +7,7 @@
 .link:hover {
   color: #776004;
 }
+
+.link.active {
+  text-decoration: underline;
+}
