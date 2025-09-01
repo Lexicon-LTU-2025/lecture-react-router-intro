@@ -1,3 +1,7 @@
+export interface IIndexable {
+  [key: string]: IPokemon;
+}
+
 export interface IPokemon {
   alt: string;
   characteristics: string[];
@@ -6,7 +10,7 @@ export interface IPokemon {
   traits: string;
 }
 
-export interface IPokemonKinds {
+export interface IPokemonKinds extends IIndexable {
   charizard: IPokemon;
   dragonite: IPokemon;
   pikachu: IPokemon;

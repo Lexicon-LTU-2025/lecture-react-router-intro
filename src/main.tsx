@@ -10,10 +10,10 @@ createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/pikachu" element={<PokemonView pokemon={pokemons.pikachu} />} />
+      {/* <Route path="/pikachu" element={<PokemonView pokemon={pokemons.pikachu} />} />
       <Route path="/charizard" element={<PokemonView pokemon={pokemons.charizard} />} />
-      <Route path="/dragonite" element={<PokemonView pokemon={pokemons.dragonite} />} />
-    
+      <Route path="/dragonite" element={<PokemonView pokemon={pokemons.dragonite} />} /> */}
+      <Route path="/:pokemonName" element={<PokemonView />} />
     </Routes>
   </BrowserRouter>
 );

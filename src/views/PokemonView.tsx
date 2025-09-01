@@ -1,24 +1,26 @@
+import { Navigate, useParams } from 'react-router';
 import { Image } from '../components/Image';
 import type { IPokemon } from '../types';
+import { pokemons } from '../pokemons';
+import type { ReactElement } from 'react';
 
-interface IPokemonViewProps {
-  // alt: string;
-  // characteristics: string[];
-  // description: string;
-  // src: string;
-  // traits: string;
+// interface IPokemonViewProps {
+//   pokemon: IPokemon;
+// }
 
-  pokemon: IPokemon;
-}
+export const PokemonView = (/*{ pokemon }: IPokemonViewProps*/): ReactElement => {
+  const { pokemonName } = useParams();
 
-export const PokemonView = ({
-  // alt,
-  // characteristics,
-  // description,
-  // src,
-  // traits,
-  pokemon,
-}: IPokemonViewProps) => {
+  if (pokemonName === undefined) {
+    return <Navigate replace to="/" />;
+  }
+
+  const pokemon: IPokemon | undefined = pokemons[pokemonName];
+
+  if (pokemon === undefined) {
+    return <Navigate replace to="/" />;
+  }
+
   const { alt, characteristics, description, src, traits } = pokemon;
 
   return (
@@ -35,12 +37,6 @@ export const PokemonView = ({
           {characteristics.map((c) => (
             <li key={c}>{c}</li>
           ))}
-          {/* <li>Type: Fire/Flying 🔥🕊️</li>
-          <li>Height: 1.7 m</li>
-          <li>Weight: 90.5 kg</li>
-          <li>Main ability: Blaze (powers up Fire-type moves in a pinch)</li>
-          <li>Favorite move: Flamethrower</li>
-          <li>Evolution: Final form of Charmander (Charmander → Charmeleon → Charizard)</li> */}
         </ul>
       </section>
     </main>
